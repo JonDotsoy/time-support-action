@@ -21,6 +21,7 @@ jobs:
           release-type: node
           package-name: time-support-action
           token: ${{ github.token }}
+          monorepo-tags: true
 
   deploy:
     runs-on: ubuntu-latest
