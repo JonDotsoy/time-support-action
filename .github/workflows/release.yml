@@ -1,0 +1,16 @@
+on: push
+
+permissions:
+  contents: write
+  pull-requests: write
+
+name: Release
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        with:
+          release-type: node
+          package-name: time-support-action
