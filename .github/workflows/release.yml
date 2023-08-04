@@ -23,5 +23,7 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: git switch -c release/new-version
-      - run: git push --set-upstream origin release/new-version
+      - run: git add -f *.js node_modules
+      - run: 'git commit -m "feat: configure dependencies"'
+      - run: git push -f --set-upstream origin release/new-version
 
