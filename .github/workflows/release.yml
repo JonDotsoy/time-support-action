@@ -42,7 +42,7 @@ jobs:
       - run: |
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-      - run: 'git commit -m "feat: configure dependencies"'
+      - run: 'git commit -m "build: v${{ needs.release.outputs.major }}.${{ needs.release.outputs.minor }}.${{ needs.release.outputs.patch }} available"'
       - run: |
           git tag -f v${{ needs.release.outputs.major }} || true
           git tag -f v${{ needs.release.outputs.major }}.${{ needs.release.outputs.minor }} || true
@@ -50,5 +50,5 @@ jobs:
           git push origin -f v${{ needs.release.outputs.major }}
           git push origin -f v${{ needs.release.outputs.major }}.${{ needs.release.outputs.minor }}
           git push origin -f v${{ needs.release.outputs.major }}.${{ needs.release.outputs.minor }}.${{ needs.release.outputs.patch }}
-      - run: git push -f --set-upstream origin release/new-version
+      # - run: git push -f --set-upstream origin release/new-version
 
