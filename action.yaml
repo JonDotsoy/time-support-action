@@ -10,6 +10,10 @@ inputs:
           until: "22:00"
           timeZone: America/Santiago
     required: true
+  blockStep:
+    description: pause step if condition is not success
+    default: 'true'
+    required: true
 outputs:
   available:
     description: Result of evaluation

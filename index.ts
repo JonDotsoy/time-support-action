@@ -22,11 +22,6 @@ export const enableHours = (
   const timeSince = Temporal.PlainTime.from(inputSince);
   const timeTo = Temporal.PlainTime.from(inputTo);
 
-  // console.log(`now: ${now}`)
-  // console.log(`nowPlainDate: ${nowPlainDate}`)
-  // console.log(`timeSince: ${timeSince}`)
-  // console.log(`timeTo: ${timeTo}`)
-
   const zonedDateTimeSince = timeSince.toZonedDateTime({
     plainDate: nowPlainDate,
     timeZone,
