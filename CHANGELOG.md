@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/JonDotsoy/time-support-action/compare/v1.0.0...v1.1.0) (2023-08-04)
+
+
+### Features
+
+* create ([e40b185](https://github.com/JonDotsoy/time-support-action/commit/e40b185f2d707138e104db4d7ad54244051c26fd))
+* upgrade release ([10518ac](https://github.com/JonDotsoy/time-support-action/commit/10518ac09e16fbccf27c82e1b65ef5bc44c9d176))
+
 ## 1.0.0 (2023-08-04)
 
 
