@@ -43,9 +43,9 @@ jobs:
           git config --global user.name "github-actions[bot]"
       - run: 'git commit -m "feat: configure dependencies"'
       - run: |
-          git tag -d v${{ needs.release.outputs.major }} || true
-          git tag -d v${{ needs.release.outputs.major }}.${{ needs.release.outputs.minor }} || true
-          git tag -d v${{ needs.release.outputs.major }}.${{ needs.release.outputs.minor }}.${{ needs.release.outputs.patch }} || true
+          git tag -f -a v${{ needs.release.outputs.major }} || true
+          git tag -f -a v${{ needs.release.outputs.major }}.${{ needs.release.outputs.minor }} || true
+          git tag -f -a v${{ needs.release.outputs.major }}.${{ needs.release.outputs.minor }}.${{ needs.release.outputs.patch }} || true
           git push origin -f v${{ needs.release.outputs.major }}
           git push origin -f v${{ needs.release.outputs.major }}.${{ needs.release.outputs.minor }}
           git push origin -f v${{ needs.release.outputs.major }}.${{ needs.release.outputs.minor }}.${{ needs.release.outputs.patch }}
