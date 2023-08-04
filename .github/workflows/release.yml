@@ -24,6 +24,6 @@ jobs:
       - run: npm test
       - run: git switch -c release/new-version
       - run: git add -f *.js node_modules
-      - run: 'git commit -m "feat: configure dependencies" --author workflow'
+      - run: 'git commit -m "feat: configure dependencies" --author "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"'
       - run: git push -f --set-upstream origin release/new-version
 
