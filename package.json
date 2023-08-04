@@ -1,10 +1,11 @@
 {
   "name": "time-support-action",
-  "version": "1.0.0",
+  "version": "1.5.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "bundle": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript"
+    "bundle": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
+    "test": "vitest run"
   },
   "keywords": [],
   "author": "",
