@@ -22,6 +22,7 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm test
+      - run: npm prune --omit=dev
       - run: git switch -c release/new-version
       - run: git add -f *.js node_modules
       - run: |
