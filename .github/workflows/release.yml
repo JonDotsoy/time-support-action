@@ -22,6 +22,32 @@ jobs:
           package-name: time-support-action
           token: ${{ github.token }}
           monorepo-tags: true
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run bundle
+      - run: git fetch --all
+      # - run: git show-ref --tags
+      - run: git checkout ${{ steps.release.outputs.sha }}
+      - run: |
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+      - run: |
+          git tag -f v${{ steps.release.outputs.major }} || true
+          git tag -f v${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }} || true
+          git tag -f v${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }} || true
+      - run: node fill-document.js README.md
+      - run: git add README.md
+      - run: |
+          git commit -m "doc: describe supported tags"
+      - run: |
+          git tag -d v${{ steps.release.outputs.major }} || true
+          git tag -d v${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }} || true
+          git tag -d v${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }} || true
+          git push origin
 
   deploy:
     runs-on: ubuntu-latest
